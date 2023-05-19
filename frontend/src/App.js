@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import { Register } from './Pages/Register';
+import {Login} from './Pages/Login';
+import {Routes,Route,useNavigate} from 'react-router-dom';
 function App() {
+  const navigate = useNavigate()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Book review blog</h1>
+      <button onClick={()=>navigate('/register')}>Register</button>
+      <button onClick={()=>navigate('/login')}>Login</button>
+      <Routes>
+        <Route path='/register' element={<Register />}></Route>
+        <Route path='/login' element={<Login />}></Route>
+      </Routes>
+      
     </div>
   );
 }
